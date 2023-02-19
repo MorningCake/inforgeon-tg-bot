@@ -17,16 +17,16 @@ internal class BotApiServiceTest : BaseSpringTest() {
     @Autowired
     private lateinit var botApiService: BotApiService
 
-    val testUser = "testuser"
+    val testUser = 1L
     val newsEntryId1 = 3716270L
     val newsEntryId2 = 3716268L
     val newsEntryId3 = 3716262L
 
     @Test
     fun userRegistration() {
-        val settings = botApiService.userRegistration(testUser)
+        val settings = botApiService.getUserSettings(testUser)
         assertNotNull(settings)
-        assertEquals(testUser, settings.username)
+        assertEquals(testUser, settings?.id)
     }
 
     @Test
